@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block site_wrapper %}
+<div id="main">
+	<a href="#content" class="skip_link">Skip to main content</a>
+	<div id ="banner">
+		<div class="bannerIEPadder">
+		<img src="/static/jar_freehand.png" alt="jar logo" height=70%> 
+		</div>
+	</div>
+
+	<div id="navigation">
+		<div class="navIEPadder">
+		<!-- here was navigation at first, css entry removed -->
+		</div>
+	</div>
+
+	<div id="middle">
+		<div id="sidebar">
+			<div class="sidebarIEPadder">
+				{% include 'tags/navigation.html' %}
+			</div>
+		</div>
+		<div id="content">
+			<a name ="content"></a>
+			<div class="contentIEPadder">
+				{% block content %}{% endblock %}
+			</div>
+		</div>
+	</div>
+
+	<div id="footer">
+		<div class="footerIEPadder">
+			[footer here]
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+		
