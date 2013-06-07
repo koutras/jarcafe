@@ -1,0 +1,23 @@
+{% extends "catalog.html" %}
+{% comment %}
+{% block title %}
+	{{flatpage.title}} - {{site_name}}
+{% endblock %}
+{% endcomment %}
+{% block content %}
+<div class="wrapper clearfix">
+	<h1>{{album.name}}</h1>
+	<h3>{{album.description}}</h3>
+	<br /><br />
+	<div class="container_12">	
+		<div class="grid_6 push_3">
+			<h1>{{flat.page.title}} - {{ site_name}}</h1>
+				<p>
+				{{flatpage.content|safe}}
+				</p>
+		</div>
+		<br/><br/>
+	</div>
+<br/></br>
+</div>
+{% endblock %}

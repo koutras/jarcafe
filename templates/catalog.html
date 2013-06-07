@@ -1,39 +1,32 @@
 {% extends "base.html" %}
 {% block site_wrapper %}
-<div id="main">
-	<a href="#content" class="skip_link">Skip to main content</a>
-	<div id ="banner">
-		<div class="bannerIEPadder">
-		<img src="/static/jar_freehand.png" alt="jar logo" height=70%> 
-		</div>
+	<div class="container_12 clearfix">
+	<div class="container_12 clearfix">
+		{% include "./tags/game.html" %}
 	</div>
+		<div class="header" } >  
+			<div class="container_12 clearfix"> 
+					{% comment %}
+				<div class="grid_5">
+						<img src="/static/logo.png" alt="Jar Sweet Tales"
+						 class="logo"/>
+					{% endcomment %}
+				</div>
+				<div class="nav grid_7">
+					<a href="/">home</a> / <a href="/photo-album/enjoy/">enjoy</a> / <a href="/photo-album/explore/">explore</a> /
+					<a href="/pages/about/">about</a> / <a href="/pages/contact/">contact</a>
+				</div>
+			</div>  
+		</div> {# header #}  
 
-	<div id="navigation">
-		<div class="navIEPadder">
-		<!-- here was navigation at first, css entry removed -->
-		</div>
-	</div>
-
-	<div id="middle">
-		<div id="sidebar">
-			<div class="sidebarIEPadder">
-				{% include 'tags/navigation.html' %}
-			</div>
-		</div>
-		<div id="content">
-			<a name ="content"></a>
-			<div class="contentIEPadder">
-				{% block content %}{% endblock %}
-			</div>
-		</div>
-	</div>
-
-	<div id="footer">
-		<div class="footerIEPadder">
-			[footer here]
-		</div>
-	</div>
-</div>
+{% block content %}
 {% endblock %}
+	{% block footer %}
+			<div class="footer clearfix">
+					<p class="grid_12">
+					<a href="http://koutras.github.com">A.K</a></p>
+			</div>
+		</div> <!-- container_12 -->
+	{% endblock %}
 
-		
+{% endblock %}

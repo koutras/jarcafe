@@ -13,9 +13,9 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
+	('^pages/', include('django.contrib.flatpages.urls')),
     url(r'^admin/', include(admin.site.urls)),
+	(r'^media/(?P<path>.*)$', 'django.views.static.serve',
+	       {'document_root': settings.MEDIA_ROOT}),
 	(r'^', include('catalog.urls')),
-	(r'^static/(?P<path>.*)$', 'django.views.static.serve',
-	       {'document_root': '/Users/akis/jarcafe/static/'}),
-		
 )

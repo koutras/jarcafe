@@ -1,20 +1,27 @@
-{% extend "catalog.html" %}
+{% extends "catalog.html" %}
 {% block content %}
-	<h3>{{album.name}}</h3>
-	{{album.description}}
+<div class="wrapper">
+	<h1>{{album.name}}</h1>
+	<h3>{{album.description}}</h3>
 	<br /><br />
-	{% for frame in frames %}
-		<div class="frame_thumbnail">
-			<a href="{{frame.image.url}}" rel="lightbox" title={{frame.description}}>
-				<img src={{frame.thumbnail.url}}
-					alt="{{frame.name}}" class="bn" />
-			</a>
+	<div class="container_12">	
+		{% for frame in frames %}
+			{% if forloop.counter0|divisibleby:3 %}
+				{% if not forloop.first %}
 		</div>
-	{% endfor %}
-<!--
-<div class="imageRow">
-	<div class="single">
-		<a href="/static/images/enjoy/cupcakes.jpg" rel="lightbox" title="my caption"><img height="150" src="/static/images/enjoy/cupcakes.jpg" alt="Plants: image 4 0f 4 thumb" /></a>
-	<a href="/static/images/enjoy/nice_coffee.jpg" rel="lightbox" title="my caption"><img  height="150"src="/static/images/enjoy/nice_coffee.jpg" alt="Plants: image 4 0f 4 thumb" /></a>
+				{% endif %}
+		<div class="imageRow clearfix">
+			{% endif %}
+			<div class="grid_4">
+					{#{{frame.name}} #}
+					<a href="{{frame.image.url}}" rel="lightbox[{{album.name}}]" title={{frame.name}}>
+						<img  src={{frame.thumbnail.url}}
+							alt="{{frame.name}}" class="bn" />
+					</a>
+					<br/><br/>
+				{#	<p><a href=frame.get_absolute_url>more...</a> </p> #}
+			</div>
+		{% endfor %}
 	</div>
-</div> -->
+</div>
+{% endblock %}
