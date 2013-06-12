@@ -1,7 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "XHTML1-s.dtd" > 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<link href="/static/lightbox/css/lightbox.css" rel="stylesheet" />
+{#	<link href="/static/lightbox/css/lightbox.css" rel="stylesheet" /> #}
+
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>{% block title %}
 		{% if page_title %}{{page_title}} - {% endif %}
@@ -9,25 +10,33 @@
 	<meta name="keywords" content="{{ meta_keywords }}" />
 	<meta name ="description" content="{{ meta_description }}" />
 	
-	<script src="/static/lightbox/js/jquery-1.7.2.min.js"></script>
-	<script src="/static/lightbox/js/lightbox.js"></script>
+	<script src="/static/lightbox/js/jquery-1.7.2.min.js"></script> 
+{#	<script src="/static/lightbox/js/lightbox.js"></script>#}
+
+	{#<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script> #}
+	<link rel="stylesheet" href="/static/fancybox/source/jquery.fancybox.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="/static/fancybox/source/jquery.fancybox.js"></script>
+	<script src="/static/jquery.easing.min.js" type="text/javascript"></script>
+
+	<!-- embbed fancybox instead -->
 	<link rel="stylesheet" type="text/css" href="/static/960_12_col.css" />
 	<style type="text/css">
 		@font-face {
 			font-family: 'QuicksandBook';
-			src: url('fonts/Quicksand_Book-webfont.eot'):
-			src: url('fonts/Quicksand_Book-webfont.eot?#iefix') format('embedded-opentype'),
-				url('fonts/Quicksand_Book-webfont.woff') format('woff'),
-				url('fonts/Quicksand_Book-webfont.ttf') format('truetype'),
-				url('fonts/Quicksand_Book-webfont.svg#QuicksandBook') format('svg');
+			src: url('/static/fonts/Quicksand_Book-webfont.eot');
+			src: url('/static/fonts/Quicksand_Book-webfont.eot?#iefix') format('embedded-opentype'),
+				url('/static/fonts/Quicksand_Book-webfont.woff') format('woff'),
+				url('/static/fonts/Quicksand_Book-webfont.ttf') format('truetype'),
+				url('/static/fonts/Quicksand_Book-webfont.svg#QuicksandBook') format('svg');
 		font-weight: normal;
 		font-style: normal;}
 
 		body {
-			background-image: url("/static/bg.jpg");
-			/*background-color: #f5d299;*/
-			font-family: Georgia, "Times New Roman", Times, serif;
-			font-size: 90%;
+			{#background-image: url("/static/bg.jpg");#} 
+			background-image: url("/static/pattern.png");
+			{#background-color: #ffcc66;#} 
+			font-family: QuicksandBook,Georgia, "Times New Roman", Times, serif;
+			font-size: 100%;
 			margin: 0px;
 			text-align: center;}
 		a {
@@ -37,62 +46,72 @@
 		a:hover {
 			color: #ffffff;}
 		.header {
-		/*	background-image : url("/static/bg-header2.png"); */
-		/*	position: fixed;*/
-			height: 40px;
 			padding: 0px 0px 0px 0px;
 			margin-top: 80px;
-			margin-bottom :0px;}
-/*
+			margin-bottom :0px;
+		}
+
+{% comment %}
+			position: fixed;
+			height: 40px;
 			top : 0px;
 			width: 100%;
-			z-index: 50; */
+			z-index: 50; 
+{% endcomment %}
+
 		.nav {
-			font-size :130%;
-			float: center;
-			font-family: QuikcsandBook, Helvetica, Arial, sans-serif;
-			padding: 10px auto 0px auto;
-			text-align : right;}
+			font-size : 130%;
+			float: left;
+			font-weight : bold;
+		}
+
+		{% comment %}
+			margin: 10px auto;
+			background-image : url("/static/bg-header2.png"); 
+			font-family: QuikcsandBook, Helvetica, Arial, sans-serif; 
+			padding: 10px 10px 10px 10px;
+			text-align : center;
+		{% endcomment %}
+
 		.wrapper {
 			width: 960px;
 			margin: 0px auto 20px auto;
 			background-color: #ffffff;
-			border: 2px solid #000000;
-			background-repeat: no-repeat;
-			background-position: 0px, 0px; */
-			text-align: left;}
+			border: 2px solid #000000; 
+			text-align: center;}
+
 		.logo{ 
 			margin-bottom: 10px;
 			margin-top: 10px;}
-		h1, h2 {
+		 h1,h2 {
 			font-family: QuikcsandBook, Helvetica, Arial, sans-serif;
 			font-weight: normal;
-			text-transform: uppercase;}
+			text-transform: capitalize;
+		}
+
 		h1 {
 			font-size: 180%;
-		/*	margin-top: 140px;*/}
+		}
+
 		.date {
 			font-family: Arial, Helvetica, sans-serif;
 			font-size: 75%;
 			color: #b5c1ad;}
 		.intro {
 			float: left; 
-			font-size: 90%
+			font-size: 90%;
 			line-height: 1.4em;}
 		.main-story {
 			float: left;
-			margin-top: 15px;
-			margin-bottom : 20px;
-						}
-		.more-articles {
+			padding : 50px 5px 20px 5px;
+		}
+
+		h4{	
 			border-top: 1px solid #807c72;
-			padding: 10px;}
-		.more-articles p {
-			border-bottom: 1px solid #807c72;
-			padding: 5px 0px 15px 0px;
-			font-size: 100%;}
-		.more-articles p: last-child {
-			border-bottom: none;}
+		}
+		p.tiny_article{
+			border-top: 1px solid #807c72;
+		}
 		
 		img { float: left;
 				padding: 5px; 
@@ -107,9 +126,9 @@
 
 		.footer {
 			clear: both;
-			background: rgba(0, 0, 0, 0.2):
+		{#	background: rgba(0, 0, 0, 0.2);#}
 			margin-top: 35px;
-			padding: 35px auto 0px auto;}
+			padding: 35px 0px 0px 0px;}
 
 		.footer p{
 			float: right;
@@ -120,7 +139,7 @@
 			color : #807c72;}
 	
 		.imageRow {
-			padding: 35px auto 35px auto;
+			padding: 10px 0px 10px 0px;
 			margin-top: 20px;
 			margin-bottom: 20px;
 		}

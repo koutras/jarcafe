@@ -1,32 +1,24 @@
 {% extends "base.html" %}
 {% block site_wrapper %}
-	<div class="container_12 clearfix">
-	<div class="container_12 clearfix">
+<div class="container_12">
+	<div class="grid_12"> <!-- game div -->
 		{% include "./tags/game.html" %}
-	</div>
-		<div class="header" } >  
-			<div class="container_12 clearfix"> 
-					{% comment %}
-				<div class="grid_5">
-						<img src="/static/logo.png" alt="Jar Sweet Tales"
-						 class="logo"/>
-					{% endcomment %}
-				</div>
-				<div class="nav grid_7">
-					<a href="/">home</a> / <a href="/photo-album/enjoy/">enjoy</a> / <a href="/photo-album/explore/">explore</a> /
-					<a href="/pages/about/">about</a> / <a href="/pages/contact/">contact</a>
-				</div>
-			</div>  
-		</div> {# header #}  
+	</div> <!--end game div -->
+
+	<div class="header nav grid_12"> <!-- header div -->  
+			<a href="/">home</a> / <a href="/photo-album/enjoy/">enjoy</a> / <a href="/photo-album/explore/">explore</a> /
+			<a href="/pages/about/">about</a> / <a href="/pages/contact/">contact</a>
+	</div> <!--end  header div -->   
+</div>
+
 
 {% block content %}
 {% endblock %}
+
 	{% block footer %}
-			<div class="footer clearfix">
-					<p class="grid_12">
-					<a href="http://koutras.github.com">A.K</a></p>
+			<div class=" grid_12 footer clearfix">
+				<p><a href="http://koutras.github.com">A.K</a></p>
 			</div>
-		</div> <!-- container_12 -->
 	{% endblock %}
 
 {% endblock %}

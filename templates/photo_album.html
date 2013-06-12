@@ -1,5 +1,18 @@
 {% extends "catalog.html" %}
 {% block content %}
+	<script>
+		$(document).ready(function(){
+			$("a.fancybox").fancybox({
+				
+				helpers : {
+					title : { 
+						type: 'over'
+					}
+				}
+			});
+			
+		});
+	</script>
 <div class="wrapper">
 	<h1>{{album.name}}</h1>
 	<h3>{{album.description}}</h3>
@@ -14,7 +27,8 @@
 			{% endif %}
 			<div class="grid_4">
 					{#{{frame.name}} #}
-					<a href="{{frame.image.url}}" rel="lightbox[{{album.name}}]" title={{frame.name}}>
+					{#<a href="{{frame.image.url}}" rel="lightbox[{{album.name}}]" title={{frame.name}}> #}
+					<a class="fancybox" rel="gallery" title="{{frame.description}}"  href="{{frame.image.url}}">
 						<img  src={{frame.thumbnail.url}}
 							alt="{{frame.name}}" class="bn" />
 					</a>

@@ -1,8 +1,8 @@
 function jar_horizontal(){  
 	
 	$(function() {
-			$("#jar").animate({left:"+=300px"},{duration:28000, queue:false});
-			$("#ripple").animate({left:"+=290px"},{queue:false,duration:28000});
+			$("#jar").animate({left:"+=530px"},{duration:24000, queue:false});
+			$("#ripple").animate({left:"+=530px"},{queue:false,duration:24000});
 	});
 }  
 function ripple(){
@@ -28,7 +28,7 @@ function jar_vertical(){
 }
 
 function welcome(){
-	$("#welcome").animate({top:"10px"},600);
+	$("#welcome").animate({top:"10px"},{queue:false,duration:700, easing:'easeOutBounce'});
 }
 
 function animation(){  
@@ -44,7 +44,7 @@ function onReady(){
 	var horizPixels=0;
 	var stringPixels;
 	setTimeout("animation()",300);
-	setTimeout("welcome()",30000);
+	setTimeout("welcome()",15000);
 
 }
 
